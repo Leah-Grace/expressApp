@@ -5,10 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Express App</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="script.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h2>My Express App</h2>
+    <div id="GETdiv">
+    <input placeholder="GET user name" id="getuserInfo" type="text">
+    <button onclick="GETUserInfo()">Get User Info</button>
+    </div>
+<div id="POSTdiv">
+    <h3>User Registration</h3>
+    <input placeholder="POST user name" id="user-name" type="text"><br> 
+    <input placeholder="POST user id" id="user-id" type="text"><br>
+    <input placeholder="POST user message" id="message" type="text"><br>
+    <button onclick="POSTUserInfo()">POST User Info</button>  
+</div>
+<div>
+    <h3>Get All Users</h3>
+<button onclick="getAllUsers()">Get All Users</button>
+<p id="allUserResult"></p>
+
+
+</div>
+<div id="answerDiv">
+    <p id="userInfo"></p>
+    <p id="userName"></p>
+    <p id="userId"></p>
+    <p id="userMessage"></p>
+</div>
 </body>
 </html>
+
+
+
+
+
+
