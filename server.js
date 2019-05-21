@@ -2,24 +2,16 @@ const express = require('express')
 const bodyParser = require('body-parser');
 const app = express()
 const port = 3030;
+const keys = require('./keys')
+const User = require('./models/User');
+
+//Connecting mongodb
+const mongoose = require('mongoose');
+mongoose.connect(keys.mongoDBUrl, {useNewUrlParser: true})
+.then(() =>{console.log(`Mongodb is connected`)});
 
 app.use(bodyParser.json());
 app.use('/', express.static("public"))
-
-//This route already used
-//app.get('/', (req, res) => res.send('Hello You, Moron!'))
-
-//A query requires a key value pair but a parameter does not!
-//to send multiple queries
-// app.get('/api', function(req, res){
-//     const userName = req.query.username;
-//     const userId = req.query.id;
-//     const message = req.query.message;
-//     const reply = `${userName} ${userId} ${message}`
-//     res.send(`${reply}`);
-//     console.log(userName);
-// })
-
 
 const data = [];
 
@@ -30,7 +22,9 @@ app.post('/api/', function(req, res){
     const message = req.body.message;
     const reply = `"${userName} with id of ${userId} is saying ${message}"`;
     res.send(reply);
+   
     console.log(reply);
+   
     const temp = {
         userName,
         userId,
