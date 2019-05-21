@@ -18,25 +18,28 @@ const data = [];
 //set up a route to accept post requests
 app.post('/api/', function(req, res){
     const userName = req.body.userName;
-    const userId = req.body.userId;
     const message = req.body.message;
-    const reply = `"${userName} with id of ${userId} is saying ${message}"`;
-    res.send(reply);
-   
-    console.log(reply);
-   
-    const temp = {
-        userName,
-        userId,
-        message
-    }
-    data.push(temp);
+//    const reply = `"${userName} with id of ${userId} is saying ${message}"`;
 
+   
+    const data = {
+        username: userName,
+        message: message
+    }
+   
     console.log(data);
+
+const user = new User(data);
+user.save().then(() => {
+    console.log("new user created");
+    res.send(data);
+});
+
+    
 })
 
 app.get("/getallusers", function (req, res) {
-    res.send(data);
+    res.send("data");
 })
 
 

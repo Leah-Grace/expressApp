@@ -34,7 +34,7 @@ const payload = {
 function getAllUsers() {
     axios.get("getallusers")
     .then(response => {
-        document.getElementById("allUserResult").innerHTML = JSON.stringify(response.data);
+        document.getElementById("allUserResult").innerHTML = JSON.parse(JSON.stringify(response.data));
     });
 }
 
