@@ -11,7 +11,8 @@ mongoose.connect(keys.mongoDBUrl, {useNewUrlParser: true})
 .then(() =>{console.log(`Mongodb is connected`)});
 
 app.use(bodyParser.json());
-app.use('/', express.static("public"))
+//app.use('/', express.static("public"));
+app.use(express.static('public'));
 
 const data = [];
 
@@ -36,19 +37,28 @@ user.save().then(() => {
 });
 
     
-})
+});
 
 app.get("/getallusers", function (req, res) {
-    res.send("data");
-})
+    User.find().then(results => {
+        console.log(results);
+        res.send(results);
+    });
+});
 
 
 //addGET request that sends parameters
-app.get('/showprofile/:userName', function(req, res){
-const user = req.params.userName;
-console.log(user);
-    res.send(`"showprofile" for ${user} is working!`)
-})
+app.get('/showprofile/:username', function(req, res){
+    const user = req.params.username;
+ console.log(user);
+User.find({username: user}).then(result => {
+    console.log(`Showing ${user} profile ${result}`);
+    res.send(result);
+}).catch(err => {
+    console.log(err);
+    res.send(err);
+});
+});
 
 ////testing Nodemon
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

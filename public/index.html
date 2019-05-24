@@ -10,26 +10,29 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="flex-container">
     <h2>My Express App</h2>
-    <div id="GETdiv">
-    <input placeholder="GET user name" id="getuserInfo" type="text">
-    <button onclick="GETUserInfo()">Get User Info</button>
     </div>
-<div id="POSTdiv">
+
+    <div class="sub-containers" id="GETdiv">
+    <input placeholder="GET user name" id="getuserInfo" type="text">
+    <button onclick="GETUserInfo()" id="userInfoButton">Get User Info</button>
+    </div>
+<div id="POSTdiv" class="sub-containers">
     <h3>User Registration</h3>
     <input placeholder="POST user name" id="user-name" type="text"><br> 
     <input placeholder="POST user id" id="user-id" type="text"><br>
     <input placeholder="POST user message" id="message" type="text"><br>
     <button onclick="POSTUserInfo()">POST User Info</button>  
 </div>
-<div>
+<div class="sub-containers">
     <h3>Get All Users</h3>
 <button onclick="getAllUsers()">Get All Users</button>
 <p id="allUserResult"></p>
 
 
 </div>
-<div id="answerDiv">
+<div id="answerDiv" class="sub-containers">
     <p id="userInfo"></p>
     <p id="userName"></p>
     <p id="userId"></p>

@@ -1,3 +1,32 @@
 div {
     margin: 20px
 }
+* {
+    font-family: 'VT323', monospace;
+    font-size: 1.2em;
+} 
+
+/*
+<link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+*/
+
+.flex-container {
+    text-align: center;
+    padding: 20px;
+    margin: 20px; 
+    border: solid black 2px; 
+    border-radius: 25px 50px 30px; 
+    width: 85%; 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.sub-containers {
+    font-size: .6em;
+    padding: 10px;
+    margin: 10px; 
+    border: solid black 2px; 
+    border-radius: 25px 50px 30px; 
+    width: 85%; 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+    border-width: 15px 5px 10px 20px;
+}
