@@ -2,7 +2,7 @@ console.log(`Script runnung`);
 
 function GETUserInfo() {
     const input = document.getElementById("getuserInfo").value;
-    const url = "/showprofile/" + input;
+    const url = "api/showprofile/" + input;
 
     axios.get(url).then(response => {
         console.log("let's go get that profile");
@@ -38,7 +38,7 @@ const payload = {
 }
 
 function getAllUsers() {
-    axios.get("getallusers")
+    axios.get('api/getallusers')
     .then(response => {
         document.getElementById("allUserResult").innerHTML = JSON.parse(JSON.stringify(response.data));
     });
